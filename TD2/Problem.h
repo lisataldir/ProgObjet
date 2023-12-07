@@ -10,7 +10,8 @@ public:
     Equation equation{};
     IMesh* imesh{};
 
-    void solve();
+    void solve_with_print();
+    void solve_without_print();
     void solve_parallel();
 };
 

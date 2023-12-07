@@ -34,7 +34,7 @@ public :
         double sigma = imesh->getSigma();
         double a = imesh->getA();
 
-    u_ref.u.resize(n);
+        u_ref.u.resize(n);
 
         for (int i=0; i < n; ++i){
             u_ref[i] = f(imesh->x_i(i) - a*t);

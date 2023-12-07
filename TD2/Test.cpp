@@ -10,7 +10,7 @@ TEST(UnitaryTest,ProblemTest){
   // construction et test d'une instance de Problem
   Problem p{};
   p.imesh = nullptr;
-  p.solve();
+  p.solve_with_print();
 }
 
 TEST(MainFunctionTest,EquationTest){
