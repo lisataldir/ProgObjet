@@ -4,7 +4,7 @@ int main(int argc, char ** argv){
 
     if (argc < 8){
         std::cout << "Usage : " << argv[0] << " [t_0], [t_final], [dt], [x_min], [x_max], [dx], [cond]" << std::endl;
-        std::cout << "Mettre cond = 0 pour comparer Upwin et Lax-Wendroff et cond = 1 pour le test de performance" << std::endl;
+        std::cout << "Mettre cond = 1 pour comparer Upwin et Lax-Wendroff et cond = 0 pour le test de performance" << std::endl;
         return 1;
     } 
         

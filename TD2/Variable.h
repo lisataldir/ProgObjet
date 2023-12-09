@@ -5,6 +5,7 @@
 #include <iostream>
 #include <fstream>
 #include <cstring>
+#include <algorithm>
 #include "IMesh.h"
 
 

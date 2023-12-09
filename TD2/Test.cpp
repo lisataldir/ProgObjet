@@ -13,7 +13,7 @@ TEST(UnitaryTest,ProblemTest){
   p.solve_with_print();
 }
 
-TEST(MainFunctionTest,EquationTest){
+TEST(UnitaryTest,EquationTest){
   // construction et test d'une instance de Equation
   Equation eq{};
   Variable u_n{};
