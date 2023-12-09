@@ -16,9 +16,12 @@ public :
         int n = imesh->x_size();
         var.u.resize(n);
 
-        for (int i=0; i < n; ++i){
-            var[i] = f(imesh->x_i(i));
-        }
+        int i = 0;
+        std::for_each(var.u.begin(), var.u.end(), [&](auto& current_element){
+            current_element = f(imesh->x_i(i));
+            i++;
+        });
+
         return var;
     }
 
@@ -36,9 +39,11 @@ public :
 
         u_ref.u.resize(n);
 
-        for (int i=0; i < n; ++i){
-            u_ref[i] = f(imesh->x_i(i) - a*t);
-        }
+        int i = 0;
+        std::for_each(u_ref.u.begin(), u_ref.u.end(), [&](auto& current_element){
+            current_element = f(imesh->x_i(i) - a*t);
+            i++;
+        });
 
         return u_ref;
     }
