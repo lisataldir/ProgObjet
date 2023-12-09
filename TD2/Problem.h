@@ -4,6 +4,7 @@
 #include "Equation.h"
 #include "Timer.h"
 #include <thread>
+#include <execution>
 
 class Problem{
 public:

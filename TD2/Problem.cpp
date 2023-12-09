@@ -18,14 +18,14 @@ void Problem::solve_with_print(){
     double mu = imesh->getMu();
     auto gauss = [sigma, mu](double x){return exp( - pow(x-mu, 2)/(2*pow(sigma, 2)) ) / (sigma*sqrt(2*M_PI));};
 
-    u_n = equation.compute_initial_condition_stl(u_n, imesh, gauss);
+    u_n = equation.compute_initial_condition(u_n, imesh, gauss);
     u_n.print(0);
 
     int iter=0;
     for (double t = t0; t < tfinal + dt; t += dt){
 
         std::cout << "--- Compute equation at time : " << t << " ---" << std::endl;
-        u_ref = equation.compute_exact_solution_stl(imesh, t, gauss);
+        u_ref = equation.compute_exact_solution(imesh, t, gauss);
         u_n = equation.compute_for_scheme<Upwind>(t,imesh,u_n,u_np1);
         u_n.print(iter);
         u_ref.print(iter);
@@ -40,7 +40,7 @@ void Problem::solve_with_print(){
     Variable u_n_2nd_order{"u_n_2nd_order_"};
     Variable u_np1_2nd_order{"u_np1_2nd_order_"};
 
-    u_n_2nd_order = equation.compute_initial_condition_stl(u_n, imesh, gauss);
+    u_n_2nd_order = equation.compute_initial_condition(u_n, imesh, gauss);
     u_n_2nd_order.print(0);
 
     iter=0;

@@ -15,12 +15,11 @@ void Variable::print(int iter){
     std::strcat(fichier, extension);
 
     std::ofstream ofs (fichier, std::ofstream::out);
-    for (int i=0; i < u.size(); ++i){
-        // stockage des données dans un fichier
-        ofs << u[i] << "\n";
-        // affichage
-        //std::cout << "-- u_n[" << i << "] = " << u[i] << std::endl;
-    }
+
+    std::for_each(u.begin(),u.end(),[&](auto current_element) {
+      ofs << current_element << "\n";
+    });
+
 
     ofs.close();
 }
