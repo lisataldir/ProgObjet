@@ -1,8 +1,8 @@
-# Programmation orientée object : Simulation équation de transport 
+# Object oriented programming : Transport equation simulation
 
-## Résultats séquentiel
+## Sequential results
 
-Pour obtenir le plot dans le fichier Resultats, suivre les étapes suivantes:
+To obtain the plot in the Resultats file, follow these steps:
 
 ```bash
 $ mkdir build
@@ -18,26 +18,26 @@ $ cd Resultats
 $ gnuplot plot-resultat.gp
 ```
 
-Remarque : ./Main.exe exécute par défaut ./Main.exe 0 2 0.1 0 10 0.1 uniform 1, mais l'utilisateur peut choisir d'autres valeurs.
+Note : './Main.exe' runs by default './Main.exe 0 2 0.1 0 10 0.1 uniform 1', but the user can choose different values.
 
-# Résultats parallèle
+## Parallel results
 
-Pour obtenir les mesures de performances, suivre les étapes suivantes:
+To obtain measure of performance, follow these steps:
 
-Tout d'abord, dans la fonction void print(int iter) du fichier Variable.cpp, remplacer 
+First, in function void print(int iter) of 'Variable.cpp' file, replace
 
 std::for_each(std::execution::seq, u.begin(),u.end(),[&](auto current_element) {
       ofs << current_element << "\n";
 }); 
 
-par :
+by :
 
 std::for_each(std::execution::par, u.begin(),u.end(),[&](auto current_element) {
       ofs << current_element << "\n";
 }); 
 
-De même dans le fichier Equation.h, remplacer std::execution::seq par std::execution::par dans les fonctions compute_initial_condition et compute_exact_solution.
-Puis dans un terminal faire :
+Same in 'Equation.h', replace std::execution::seq par std::execution::par inside compute_initial_condition() and compute_exact_solution().
+Then do :
 
 ```bash
 $ cd build
